@@ -8,7 +8,7 @@ data "aws_subnet_ids" "default_subnet" {
 
 resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
   vpc_id     = "${data.aws_vpc.default_vpc.id}"
-  cidr_block = "10.0.1.0/16"
+  cidr_block = "10.0.0.0/16"
 }
 
 resource "aws_subnet" "main" {
