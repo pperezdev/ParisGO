@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "s3pa4dd01" {
 }
 
 resource "aws_s3_bucket_object" "raw_files" {
-    bucket  = "${s3pa4dd01.default.id}"
+    bucket  = "${aws_s3_bucket.s3pa4dd01.id}"
     acl     = "private"
     key     =  "raw_files"
     content_type = "application/x-directory"
