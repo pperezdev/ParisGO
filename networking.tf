@@ -1,5 +1,6 @@
 data "aws_vpc" "default_vpc" {
   default = true
+  cidr_block = "10.0.1.0/16"
 }
 
 data "aws_subnet_ids" "default_subnet" {
