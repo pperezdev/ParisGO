@@ -8,4 +8,5 @@ resource "aws_db_instance" "sqldbpa4dd01" {
   username            = var.AWS_DATABASE_USERNAME
   password            = var.AWS_DATABASE_PASSWORD
   skip_final_snapshot = true
+  publicly_accessible = true
 }
