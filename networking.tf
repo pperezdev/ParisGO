@@ -7,7 +7,7 @@ data "aws_subnet_ids" "default_subnet" {
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = "${data.aws_vpc.main.id}"
+  vpc_id     = data.aws_vpc.default_vpc.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
