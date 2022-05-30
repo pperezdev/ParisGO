@@ -1,3 +1,9 @@
+variable "region" {
+  description = "Default region for provider"
+  type        = string
+  default     = "us-east-1"
+}
+
 variable "AWS_ACCESS_KEY_ID" {
   description = "acess key of aws"
   type        = string
