@@ -1,9 +1,9 @@
 resource "aws_eks_cluster" "api_ekscluster01padd01" {
   name     = "api_ekscluster01padd01"
-  role_arn = aws_iam_role.example.arn
+  role_arn = aws_iam_role.api_eksrole01padd01.arn
 
   vpc_config {
-    subnet_ids = [aws_subnet.example1.id, aws_subnet.example2.id]
+    subnet_ids = [aws_subnet.default_subnet.id]
   }
 
   depends_on = [
