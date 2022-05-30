@@ -17,3 +17,22 @@ variable "AWS_SECRET_ACCESS_KEY" {
   default     = ""
   sensitive   = true
 }
+
+variable "AWS_DATABASE_NAME" {
+  description = "aws database name"
+  type        = string
+  default     = ""
+}
+
+variable "AWS_DATABASE_USERNAME" {
+  description = "aws database username"
+  type        = string
+  default     = ""
+}
+
+variable "AWS_DATABASE_PASSWORD" {
+  description = "aws database password"
+  type        = string
+  default     = ""
+  sensitive   = true
+}

@@ -7,16 +7,16 @@ resource "aws_s3_bucket" "s3pa4dd01" {
   }
 }
 
-resource "aws_s3_bucket_object" "raw_files" {
+resource "aws_s3_bucket_object" "raw_folder" {
     bucket  = "${aws_s3_bucket.s3pa4dd01.id}"
     acl     = "private"
-    key     =  "raw_files"
-    content_type = "application/x-directory"
+    key     =  "raw_folder/"
+    source  = "/dev/null"
 }
 
-resource "aws_s3_bucket_object" "refined_files" {
+resource "aws_s3_bucket_object" "refined_folder" {
     bucket  = "${aws_s3_bucket.s3pa4dd01.id}"
     acl     = "private"
-    key     =  "refined_files"
-    content_type = "application/x-directory"
+    key     =  "refined_folder/"
+    source  = "/dev/null"
 }
