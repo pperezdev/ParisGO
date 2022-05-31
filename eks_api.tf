@@ -4,8 +4,10 @@ resource "aws_eks_cluster" "api_ekscluster01padd01" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.private-main.id,
-      aws_subnet.public-main.id
+      aws_subnet.private-us-east-1a.id,
+      aws_subnet.private-us-east-1b.id,
+      aws_subnet.public-us-east-1a.id,
+      aws_subnet.public-us-east-1b.id
     ]
   }
 
