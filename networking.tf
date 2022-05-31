@@ -3,10 +3,6 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 }
 
-data "aws_subnet_ids" "default_subnet" {
-  vpc_id = aws_vpc.main.id
-}
-
 resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
   vpc_id     = "${aws_vpc.main.id}"
   cidr_block = "172.2.0.0/16"
