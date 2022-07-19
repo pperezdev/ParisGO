@@ -7,6 +7,9 @@ resource "aws_iam_openid_connect_provider" "eks" {
   thumbprint_list = [data.tls_certificate.eks.certificates[0].sha1_fingerprint]
   url             = aws_eks_cluster.api_ekscluster01padd01.identity[0].oidc[0].issuer
 }
+resource "aws_iam_role" "ftp" {
+  name = "ftp"
+}
 
 resource "aws_iam_role_policy" "ftp" {
   name = "tf-test-transfer-user-iam-policy"
