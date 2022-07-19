@@ -7,23 +7,33 @@ resource "aws_iam_openid_connect_provider" "eks" {
   thumbprint_list = [data.tls_certificate.eks.certificates[0].sha1_fingerprint]
   url             = aws_eks_cluster.api_ekscluster01padd01.identity[0].oidc[0].issuer
 }
+
+resource "aws_transfer_server" "ftp" {
+  identity_provider_type = "SERVICE_MANAGED"
+
+  tags = {
+    NAME = "tf-acc-test-transfer-server"
+  }
+}
+
+
 resource "aws_iam_role" "ftp" {
-  name = "ftp"
-  assume_role_policy = <<POLICY
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "AllowFullAccesstoS3",
-                "Effect": "Allow",
-                "Action": [
-                    "s3:*"
-                ],
-                "Resource": "*"
-            }
-        ]
-    }
-  POLICY
+  name = "tf-test-transfer-user-iam-role"
+
+  assume_role_policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "transfer.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+        }
+    ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy" "ftp" {
