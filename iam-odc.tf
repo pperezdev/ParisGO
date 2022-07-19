@@ -9,6 +9,21 @@ resource "aws_iam_openid_connect_provider" "eks" {
 }
 resource "aws_iam_role" "ftp" {
   name = "ftp"
+  assume_role_policy = <<POLICY
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowFullAccesstoS3",
+                "Effect": "Allow",
+                "Action": [
+                    "s3:*"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+  POLICY
 }
 
 resource "aws_iam_role_policy" "ftp" {
