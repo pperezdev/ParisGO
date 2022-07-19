@@ -65,6 +65,6 @@ resource "aws_transfer_user" "ftp" {
   home_directory_type = "LOGICAL"
   home_directory_mappings {
     entry  = "/"
-    target = "/bucket3/"
+    target = "/s3pa4dd01/"
   }
 }
