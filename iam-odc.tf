@@ -30,7 +30,7 @@ POLICY
 }
 
 resource "aws_transfer_user" "ftp" {
-  server_id = aws_transfer_server.ftp.id
+  server_id = aws_transfer_server.awstserverpa4dd01.id
   user_name = "tftestuser"
   role      = aws_iam_role.ftp.arn
 
